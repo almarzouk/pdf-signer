@@ -153,7 +153,7 @@ export default function ImageViewer({
               className="p-2 rounded-lg bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-slate-300 transition-colors">
               <ZoomIn className="w-4 h-4" />
             </button>
-            <button onClick={() => setZoom(1)} title="إعادة تعيين"
+            <button onClick={() => setZoom(1)} title="Zurücksetzen"
               className="p-2 rounded-lg bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-slate-300 transition-colors">
               <RotateCcw className="w-4 h-4" />
             </button>
@@ -164,15 +164,15 @@ export default function ImageViewer({
             disabled={signatures.length === 0}
             className="flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-lg bg-green-600 hover:bg-green-500 active:bg-green-700 disabled:opacity-40 disabled:cursor-not-allowed text-white transition-colors text-xs sm:text-sm font-medium whitespace-nowrap">
             <Download className="w-4 h-4" />
-            <span className="hidden sm:inline">تحميل الصورة</span>
-            <span className="inline sm:hidden">تحميل</span>
+            <span className="hidden sm:inline">Bild herunterladen</span>
+            <span className="inline sm:hidden">Download</span>
           </button>
         </div>
 
         {signatures.length > 0 && (
           <div className="flex items-center justify-center gap-1 text-slate-500 text-xs mt-1.5">
             <Move className="w-3 h-3" />
-            <span>اسحب التوقيع لتحريكه — اسحب الزاوية لتغيير الحجم</span>
+            <span>Unterschrift verschieben — Ecke ziehen zum Vergrößern</span>
           </div>
         )}
       </div>
@@ -240,7 +240,7 @@ export default function ImageViewer({
                 <button
                   onMouseDown={(e) => { e.stopPropagation(); removeSig(sig.id); }}
                   onTouchStart={(e) => { e.stopPropagation(); removeSig(sig.id); }}
-                  title="حذف"
+                  title="Löschen"
                   className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-red-500 text-white text-xs flex items-center justify-center hover:bg-red-400 z-20 shadow-md"
                 >✕</button>
                 <div
@@ -251,7 +251,7 @@ export default function ImageViewer({
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="white"><path d="M0 8 L8 0 L8 8 Z" /></svg>
                 </div>
                 <div className="absolute -top-6 left-0 bg-blue-600 text-white text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-80 pointer-events-none">
-                  اسحب للتحريك
+                  Zum Verschieben ziehen
                 </div>
               </div>
             ))}

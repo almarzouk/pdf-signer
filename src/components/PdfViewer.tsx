@@ -270,7 +270,7 @@ export default function PdfViewer({
               onClick={() => { const p = Math.max(1, currentPage - 1); setCurrentPage(p); onPageChange?.(p); }}
               disabled={currentPage <= 1}
               className="p-2 rounded-lg bg-slate-700 hover:bg-slate-600 active:bg-slate-500 disabled:opacity-40 text-slate-300 transition-colors">
-              <ChevronRight className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4" />
             </button>
             <span className="text-slate-300 text-xs sm:text-sm tabular-nums whitespace-nowrap">
               {currentPage} / {numPages}
@@ -279,7 +279,7 @@ export default function PdfViewer({
               onClick={() => { const p = Math.min(numPages, currentPage + 1); setCurrentPage(p); onPageChange?.(p); }}
               disabled={currentPage >= numPages}
               className="p-2 rounded-lg bg-slate-700 hover:bg-slate-600 active:bg-slate-500 disabled:opacity-40 text-slate-300 transition-colors">
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4" />
             </button>
           </div>
 
@@ -359,12 +359,12 @@ export default function PdfViewer({
                   className="absolute -bottom-2 -right-2 w-5 h-5 rounded-full bg-blue-500 cursor-se-resize flex items-center justify-center z-20 shadow-md"
                   onMouseDown={(e) => startResize(e, sig.id)}
                   onTouchStart={(e) => startResize(e, sig.id)}
-                  title="تغيير الحجم"
+                  title="Größe ändern"
                 >
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="white"><path d="M0 8 L8 0 L8 8 Z" /></svg>
                 </div>
                 <div className="absolute -top-6 left-0 bg-blue-600 text-white text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-80 pointer-events-none">
-                  اسحب للتحريك
+                  Zum Verschieben ziehen
                 </div>
               </div>
             ))}

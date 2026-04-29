@@ -154,18 +154,14 @@ export default function SignaturePad({
             </div>
             <div>
               <h2 className="text-white font-semibold text-lg leading-tight">
-                {step === "draw" ? "رسم التوقيع" : "اختيار الصفحات"}
+                {step === "draw" ? "Unterschrift zeichnen" : "Seiten auswählen"}
               </h2>
               {numPages > 0 && (
                 <div className="flex items-center gap-1 mt-0.5">
-                  <div
-                    className={`w-2 h-2 rounded-full transition-colors ${step === "draw" ? "bg-blue-400" : "bg-slate-600"}`}
-                  />
-                  <div
-                    className={`w-2 h-2 rounded-full transition-colors ${step === "pages" ? "bg-blue-400" : "bg-slate-600"}`}
-                  />
+                  <div className={`w-2 h-2 rounded-full transition-colors ${step === "draw" ? "bg-blue-400" : "bg-slate-600"}`} />
+                  <div className={`w-2 h-2 rounded-full transition-colors ${step === "pages" ? "bg-blue-400" : "bg-slate-600"}`} />
                   <span className="text-slate-500 text-xs mr-1">
-                    {step === "draw" ? "الخطوة ١ من ٢" : "الخطوة ٢ من ٢"}
+                    {step === "draw" ? "Schritt 1 von 2" : "Schritt 2 von 2"}
                   </span>
                 </div>
               )}
@@ -181,7 +177,7 @@ export default function SignaturePad({
           <div className="p-4 sm:p-5 space-y-3 sm:space-y-4 overflow-y-auto">
             <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
               <div className="flex items-center gap-2">
-                <span className="text-slate-400 text-sm">اللون:</span>
+                <span className="text-slate-400 text-sm">Farbe:</span>
                 {colors.map((c) => (
                   <button
                     key={c}
@@ -192,7 +188,7 @@ export default function SignaturePad({
                 ))}
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-slate-400 text-sm">الحجم:</span>
+                <span className="text-slate-400 text-sm">Größe:</span>
                 {sizes.map((s) => (
                   <button
                     key={s}
@@ -208,7 +204,7 @@ export default function SignaturePad({
             <div className="relative rounded-xl overflow-hidden border border-slate-600 bg-white">
               {isEmpty && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <p className="text-slate-300 text-sm select-none">وقّع هنا ...</p>
+                  <p className="text-slate-300 text-sm select-none">Hier unterschreiben ...</p>
                 </div>
               )}
               <canvas
@@ -231,7 +227,7 @@ export default function SignaturePad({
                 className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-300 transition-colors text-sm"
               >
                 <Trash2 className="w-4 h-4" />
-                مسح
+                Löschen
               </button>
               <button
                 onClick={goToPageSelect}
@@ -240,13 +236,13 @@ export default function SignaturePad({
               >
                 {numPages > 0 ? (
                   <>
-                    التالي — اختيار الصفحات
-                    <ChevronLeft className="w-4 h-4" />
+                    Weiter — Seiten auswählen
+                    <ChevronRight className="w-4 h-4" />
                   </>
                 ) : (
                   <>
                     <Check className="w-4 h-4" />
-                    حفظ التوقيع
+                    Unterschrift speichern
                   </>
                 )}
               </button>
@@ -258,19 +254,19 @@ export default function SignaturePad({
         {step === "pages" && (
           <div className="p-4 sm:p-5 space-y-3 sm:space-y-4 overflow-y-auto">
             <div className="flex items-center justify-between">
-              <p className="text-slate-300 text-sm">اختر الصفحات التي تريد التوقيع عليها</p>
+              <p className="text-slate-300 text-sm">Wählen Sie die Seiten aus, die Sie unterschreiben möchten</p>
               <div className="flex gap-2">
                 <button
                   onClick={selectAll}
                   className="px-2.5 py-1 rounded-md bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 text-xs transition-colors border border-blue-500/30"
                 >
-                  الكل ({numPages})
+                  Alle ({numPages})
                 </button>
                 <button
                   onClick={selectNone}
                   className="px-2.5 py-1 rounded-md bg-slate-700 hover:bg-slate-600 text-slate-400 text-xs transition-colors"
                 >
-                  إلغاء
+                  Keine
                 </button>
               </div>
             </div>
@@ -299,7 +295,7 @@ export default function SignaturePad({
                       <FileText className="w-3.5 h-3.5 mb-0.5" />
                       <span>{p}</span>
                       {isCurrent && (
-                        <span className="text-[8px] text-yellow-400 leading-none mt-0.5">الحالية</span>
+                        <span className="text-[8px] text-yellow-400 leading-none mt-0.5">Aktuell</span>
                       )}
                     </button>
                   );
@@ -309,17 +305,16 @@ export default function SignaturePad({
 
             <div className="flex items-center justify-between pt-1">
               <span className="text-slate-400 text-xs sm:text-sm">
-                تم اختيار{" "}
                 <span className="text-blue-400 font-semibold">{selectedPages.size}</span>{" "}
-                {selectedPages.size === 1 ? "صفحة" : "صفحات"}
+                {selectedPages.size === 1 ? "Seite" : "Seiten"} ausgewählt
               </span>
               <div className="flex gap-2 sm:gap-3">
                 <button
                   onClick={() => setStep("draw")}
                   className="flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-300 transition-colors text-sm"
                 >
-                  <ChevronRight className="w-4 h-4" />
-                  رجوع
+                  <ChevronLeft className="w-4 h-4" />
+                  Zurück
                 </button>
                 <button
                   onClick={confirmSave}
@@ -327,7 +322,7 @@ export default function SignaturePad({
                   className="flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-lg bg-green-600 hover:bg-green-500 disabled:opacity-40 disabled:cursor-not-allowed text-white transition-colors text-sm font-medium"
                 >
                   <Check className="w-4 h-4" />
-                  تطبيق التوقيع
+                  Unterschrift anwenden
                 </button>
               </div>
             </div>
